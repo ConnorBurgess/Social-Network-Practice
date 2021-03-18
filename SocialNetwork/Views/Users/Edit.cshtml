@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SocialNetwork.Models.User
+
+<h2>Edit</h2>
+
+<h4>Edit this userman: @Html.DisplayFor(model => model.UserName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.UserId)
+
+    @Html.LabelFor(model => model.UserName)
+    @Html.EditorFor(model => model.UserName)
+    @Html.LabelFor(model => model.UserAbout)
+    @Html.EditorFor(model => model.UserAbout)
+    @* IMAGE GO HERE *@
+    
+
+    @* @Html.Label("Select student")
+    @Html.DropDownList("StudentId") *@
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

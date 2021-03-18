@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SocialNetwork.Models.User
+
+<h2>Add a follower</h2>
+
+<h4>Add a follower to this user: @Html.DisplayFor(model => model.UserName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.UserId)
+
+    @Html.Label("Select user")
+    @Html.DropDownListFor(m => m.FollowerId,(SelectList)ViewBag.UserId)
+
+    @* @Html.DropDownList("UserId") *@
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

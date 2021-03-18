@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SocialNetwork.Models.User
+
+<h4>Add a new user</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.UserName)
+  @Html.TextBoxFor(model => model.UserName)
+  @Html.LabelFor(model => model.UserAbout)
+  @Html.TextBoxFor(model => model.UserAbout)
+  @* IMAGE GO HERE *@
+  <form asp-action="Create" enctype="multipart/form-data">
+  <input asp-for="ImageCaption" />
+  <input asp-for="ImageDescription" />
+  <input type="file" asp-for="MyImage" />
+  <input type="submit" />
+</form>
+
+
+  <input type="submit" value="Add new User" class="btn btn-default" />
+}
+
+
+<p>@Html.ActionLink("Show all users", "Index")</p>
